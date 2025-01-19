@@ -1,25 +1,20 @@
-fn main() -> u32 {
-    fib(16)
-}
+mod contracts {
+    pub mod Portfolio;
+    pub mod AssetManager;
+    pub mod RiskManager;
+    pub mod Oracle;
+    pub mod Constants;
+    
+    pub mod structs {
+        pub mod Asset;
+        pub mod PortfolioState;
+        pub mod RiskScore;
+        pub mod Allocation;
+    }
 
-fn fib(mut n: u32) -> u32 {
-    let mut a: u32 = 0;
-    let mut b: u32 = 1;
-    while n != 0 {
-        n = n - 1;
-        let temp = b;
-        b = a + b;
-        a = temp;
-    };
-    a
-}
-
-#[cfg(test)]
-mod tests {
-    use super::fib;
-
-    #[test]
-    fn it_works() {
-        assert(fib(16) == 987, 'it works!');
+    pub mod interfaces {
+        pub mod IAssetManager;
+        pub mod IRiskManager;
+        pub mod IOracle;
     }
 }
